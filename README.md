@@ -27,15 +27,12 @@ Aquest projecte és un exemple pràctic d'això, usant **Redis com a sistema de 
 
 SSE (Server-Sent Events) és una tecnologia web que permet que un servidor envie dades al navegador del client en temps real mitjançant una connexió HTTP unidireccional i persistent:
 
-    - El servidor envia dades de forma contínua al client
+- El servidor envia dades de forma contínua al client
+- Basat en HTTP, no cal cap protocol especial com WebSockets
+- El client escolta, però no pot respondre per aquest canal
+- Ideal per xats, dashboards, notificacions o actualitzacions en temps real
 
-    - Basat en HTTP, no cal cap protocol especial com WebSockets
-
-    - El client escolta, però no pot respondre per aquest canal
-
-    - Ideal per xats, dashboards, notificacions o actualitzacions en temps real
-
-** Com funciona:
+**Com funciona:**
 
     El client fa una petició HTTP:
 
