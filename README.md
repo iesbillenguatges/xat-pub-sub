@@ -25,7 +25,7 @@ Aquest projecte és un exemple pràctic d'això, usant **Redis com a sistema de 
 - Docker + Docker Compose
 - HTML + JavaScript (SSE - Server-Sent Events)
 
-SSE (Server-Sent Events) és una tecnologia web que permet que un servidor envie dades al navegador del client en temps real mitjançant una connexió HTTP unidireccional i persistent:
+**SSE (Server-Sent Events)** és una tecnologia web que permet que un servidor envie dades al navegador del client en temps real mitjançant una connexió HTTP unidireccional i persistent:
 
 - El servidor envia dades de forma contínua al client
 - Basat en HTTP, no cal cap protocol especial com WebSockets
@@ -38,21 +38,15 @@ SSE (Server-Sent Events) és una tecnologia web que permet que un servidor envie
 - No cal obrir cap connexió especial ni configurar WebSockets
 - Manté una connexió viva de llarga durada per enviar dades
 
-## 🧱 Arquitectura del sistema
+Pel que fa a **Flask** és un microframework web per a Python que permet crear aplicacions web de manera ràpida, senzilla i flexible.
 
-Usuari navegador
-     ↓         ↑
-  [ HTML + JS ] (SSE + POST)
-       ↓         ↑
-   Flask (app.py) ←→ Redis Pub/Sub
-
-## ▶️ Com executar
+## Com pots provar-lo
 
 1. **Clona el repositori**:
 
 ```bash
-git clone https://github.com/el-teu-usuari/chat-pubsub-final.git
-cd chat-pubsub-final
+https://github.com/iesbillenguatges/xat-pub-sub.git
+cd xat-pub-sub
 ```
 
 2. **Executa amb Docker Compose**:
@@ -65,20 +59,4 @@ docker-compose up --build
 
 ```
 http://localhost:5000
-```
-
-## 🔄 Exemple amb Redis CLI (manual)
-
-Obre dues terminals al contenidor Redis:
-
-**1. Subscriu-te al canal**:
-```bash
-docker exec -it chat-pubsub-final-redis-1 redis-cli
-> SUBSCRIBE chat
-```
-
-**2. Publica un missatge**:
-```bash
-docker exec -it chat-pubsub-final-redis-1 redis-cli
-> PUBLISH chat "Hola des de Redis CLI!"
 ```
