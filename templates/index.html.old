@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Xat Pub/Sub</title>
+  <style>
+    body { font-family: sans-serif; }
+    #chat { list-style: none; padding: 0; }
+    #chat li { padding: 4px; border-bottom: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Xat</h1>
+  <form id="messageForm">
+    <input type="text" name="message" id="messageInput" autocomplete="off" placeholder="Missatge" required>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <ul id="chat"></ul>
+
+  <script>
+    const chat = document.getElementById("chat");
+    const form = document.getElementById("messageForm");
+    const input = document.getElementById("messageInput");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      fetch("/send", {
+        method: "POST",
+        body: data
+      }).then(() => {
+        input.value = "";
+      });
+    });
+
+    const evtSource = new EventSource("/stream");
+    evtSource.onmessage = function(event) {
+      const li = document.createElement("li");
+      li.textContent = event.data;
+      chat.appendChild(li);
+    };
+  </script>
+</body>
+</html>
