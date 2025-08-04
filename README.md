@@ -32,38 +32,11 @@ SSE (Server-Sent Events) és una tecnologia web que permet que un servidor envie
 - El client escolta, però no pot respondre per aquest canal
 - Ideal per xats, dashboards, notificacions o actualitzacions en temps real
 
-**Com funciona:**
+**Avantatges d'SSE**
 
-    El client fa una petició HTTP:
-
-const evtSource = new EventSource('/stream');
-
-El servidor respon amb dades en format especial:
-
-data: Nou missatge!
-
-data: Una altra actualització!
-
-El navegador executa automàticament el codi associat:
-
-    evtSource.onmessage = function(event) {
-      console.log("Missatge rebut:", event.data);
-    };
-
-🆚 Comparat amb WebSockets:
-Característica	SSE	WebSockets
-Direcció	Unidireccional (server → client)	Bidireccional
-Protocol	HTTP	Protocol WebSocket (ws://)
-Suport navegadors	Excel·lent (excepte IE11)	Bo, però menys universal
-Fàcil d'implementar	✅ Sí	❌ Més complex
-Ideal per...	Notificacions, xats simples	Jocs, videotrucades, xats complexos
-✅ Avantatges d'SSE
-
-    Senzill d’implementar (només HTML + Flask)
-
-    No cal obrir cap connexió especial ni configurar WebSockets
-
-    Manté una connexió viva de llarga durada per enviar dades
+- Senzill d’implementar (només HTML + Flask)
+- No cal obrir cap connexió especial ni configurar WebSockets
+- Manté una connexió viva de llarga durada per enviar dades
 
 ## 🧱 Arquitectura del sistema
 
