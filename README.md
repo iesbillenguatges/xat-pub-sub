@@ -45,7 +45,7 @@ Pel que fa a **Flask** és un microframework web per a Python que permet crear a
 1. **Clona el repositori**:
 
 ```bash
-https://github.com/iesbillenguatges/xat-pub-sub.git
+git clone https://github.com/iesbillenguatges/xat-pub-sub.git
 cd xat-pub-sub
 ```
 
