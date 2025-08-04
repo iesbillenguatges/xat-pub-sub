@@ -14,7 +14,6 @@ def send():
     r.publish("chat", message)
     return "", 204
 
-
 @app.route("/stream")
 def stream():
     def event_stream():
